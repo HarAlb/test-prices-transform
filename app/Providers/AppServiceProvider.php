@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Src\Product\Services\Contracts\PriceConverterInterface;
+use Src\Product\Services\PriceConverterService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(PriceConverterInterface::class, PriceConverterService::class);
     }
 
     /**
